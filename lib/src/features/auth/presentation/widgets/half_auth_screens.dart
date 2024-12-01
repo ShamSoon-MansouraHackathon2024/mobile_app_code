@@ -29,7 +29,7 @@ class HalfAuthScreens extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        AppButton(buttonText: btnText, onClick: onClick!),
+        AppButton(buttonText: btnText, onClick: onClick),
         Row(
           children: [
             const Expanded(child: AppDivider()),

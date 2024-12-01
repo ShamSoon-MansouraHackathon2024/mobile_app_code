@@ -8,6 +8,7 @@ import 'package:shamsoon/src/core/helpers/base_extensions/context/routes.dart';
 import 'package:shamsoon/src/core/helpers/base_widgets/text.dart';
 import 'package:shamsoon/src/core/helpers/base_widgets/text_field.dart';
 import 'package:shamsoon/src/core/helpers/base_widgets/toast.dart';
+import 'package:shamsoon/src/core/helpers/helper_methods/validators.dart';
 import 'package:shamsoon/src/features/auth/data/data_source/models/login.dart';
 import 'package:shamsoon/src/features/auth/presentation/bloc/auth_cubit.dart';
 import 'package:shamsoon/src/features/auth/presentation/bloc/auth_state.dart';
@@ -62,6 +63,8 @@ class _LoginState extends State<Login> {
                   )
               ),
               controller: emailController,
+              autoValidateMode: AutovalidateMode.onUserInteraction,
+              validator: Validators.validateEmail,
               hintText: 'Enter your Email',
               hintStyle: const TextStyle(color: Colors.grey),
             ),
@@ -76,6 +79,8 @@ class _LoginState extends State<Login> {
                 )
               ),
               controller: passController,
+              autoValidateMode: AutovalidateMode.onUserInteraction,
+              validator: Validators.validatePassword,
               hintText: 'Enter your password',
               hintStyle: const TextStyle(color: Colors.grey),
               suffixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.visibility_off)),
@@ -96,9 +101,9 @@ class _LoginState extends State<Login> {
               child: BlocConsumer<AuthCubit, AuthState>(
                 listener: (context, state) {
                   if(state.currentState == AuthStates.loginSuccess){
-                    AppToast.showToast(context, msg: state.errorMsg!);
-                  }else if(state.currentState == AuthStates.loginError){
                     context.removeOldRoute(const Home());
+                  }else if(state.currentState == AuthStates.loginError){
+                    AppToast.showToast(context, msg: state.errorMsg!);
                   }
                 } ,
                 builder: (context, state) => HalfAuthScreens(

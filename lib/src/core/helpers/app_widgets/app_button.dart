@@ -6,7 +6,7 @@ import 'package:shamsoon/src/core/helpers/base_widgets/text.dart';
 
 class AppButton extends StatelessWidget {
   final String buttonText;
-  final void Function() onClick;
+  final void Function()? onClick;
 
   const AppButton({super.key,
     required this.buttonText,

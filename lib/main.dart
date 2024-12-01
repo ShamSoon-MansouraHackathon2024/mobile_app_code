@@ -30,17 +30,17 @@ void main()async {
   ]);
 
   // Flutter errors
-  FlutterError.onError = (errorDetails) {
+  // FlutterError.onError = (errorDetails) {
     // FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-    FlutterError.dumpErrorToConsole(errorDetails);
-    runApp(UnexpectedErrorHandler(errorDetails: errorDetails));
-  };
+    // FlutterError.dumpErrorToConsole(errorDetails);
+    // runApp(UnexpectedErrorHandler(errorDetails: errorDetails));
+  // };
 
   // asynchronous errors
-  PlatformDispatcher.instance.onError = (error, stack) {
+  // PlatformDispatcher.instance.onError = (error, stack) {
     // FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
-  };
+    // return true;
+  // };
 
   runApp(
     EasyLocalization(

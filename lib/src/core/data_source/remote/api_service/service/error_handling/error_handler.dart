@@ -5,7 +5,7 @@ import 'errors.dart';
 class ReceivedError{
   static RemoteError handle(DioException e) {
     log('code : ${e.response?.statusCode}');
-    log('response error message : ${e.response?.data['message']}');
+    // log('response error message : ${e.response?.data['message']}');
 
     switch(e.type) {
       case DioExceptionType.sendTimeout:
