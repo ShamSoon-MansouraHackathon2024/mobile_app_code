@@ -11,6 +11,9 @@ import 'core/helpers/helper_methods/handle_permissions.dart';
 import 'core/shared/observers/route_observer.dart';
 import 'features/auth/presentation/screens/login.dart';
 import 'features/home/presentation/screens/main_screen.dart';
+import 'features/sending_pic_to_ai/presentation/bloc/panel_details_cubit.dart';
+import 'features/sending_pic_to_ai/presentation/screens/details.dart';
+import 'features/splash/splash.dart';
 class ShamSoon extends StatefulWidget {
   const ShamSoon({super.key});
 
@@ -41,7 +44,8 @@ class _ShamSoonState extends State<ShamSoon> {
       splitScreenMode: true,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => GetIt.instance.get<AuthCubit>(),)
+          BlocProvider(create: (context) => GetIt.instance.get<AuthCubit>(),),
+          BlocProvider(create: (context) => GetIt.instance.get<PanelDetailsCubit>(),)
         ],
         child: MaterialApp(
           // shortcuts: ,
@@ -56,7 +60,7 @@ class _ShamSoonState extends State<ShamSoon> {
           // theme: CacheHelper.getInstance().shared.getBool('appTheme') == false
           //     ? ThemeData.light()
           //     : ThemeData.dark(),
-          home: const Login(),
+          home: const Splash(),
           builder: EasyLoading.init(),
         ),
       ),

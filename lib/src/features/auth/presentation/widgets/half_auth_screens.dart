@@ -54,7 +54,7 @@ class HalfAuthScreens extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(Assets.imagesGoogle),
+                  Image.asset(Assets.imagesGoogleIcon),
                   SizedBox(
                     width: 7.w,
                   ),

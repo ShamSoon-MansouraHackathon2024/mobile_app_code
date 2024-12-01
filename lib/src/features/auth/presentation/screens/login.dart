@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shamsoon/generated/assets.dart';
 import 'package:shamsoon/src/core/constants/app_constants.dart';
+import 'package:shamsoon/src/core/helpers/app_widgets/app_logo.dart';
 import 'package:shamsoon/src/core/helpers/base_extensions/context/padding.dart';
 import 'package:shamsoon/src/core/helpers/base_extensions/context/routes.dart';
 import 'package:shamsoon/src/core/helpers/base_widgets/text.dart';
@@ -15,6 +16,8 @@ import 'package:shamsoon/src/features/auth/presentation/bloc/auth_state.dart';
 import 'package:shamsoon/src/features/auth/presentation/widgets/half_auth_screens.dart';
 import 'package:shamsoon/src/features/home/presentation/screens/main_screen.dart';
 import 'package:svg_flutter/svg.dart';
+
+import '../widgets/auth_text_field.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -50,42 +53,18 @@ class _LoginState extends State<Login> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SvgPicture.asset(Assets.imagesAppLogo),
+            const AppLogoWidget(),
             Padding(
               padding: context.verticalSymmetricPadding(10.w),
               child: AppText(text: 'Welcome back', fontWeight: FontWeight.w600, fontSize: 22.sp,),
             ),
-            AppTextFormField(
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(40.r),
-                  borderSide: BorderSide(
-                      color: Constants.appColor
-                  )
-              ),
-              controller: emailController,
-              autoValidateMode: AutovalidateMode.onUserInteraction,
-              validator: Validators.validateEmail,
-              hintText: 'Enter your Email',
-              hintStyle: const TextStyle(color: Colors.grey),
-            ),
-            SizedBox(
-              height: 16.h,
-            ),
-            AppTextFormField(
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(40.r),
-                borderSide: BorderSide(
-                  color: Constants.appColor
-                )
-              ),
+            AuthTextField(controller: emailController, hintText: 'Enter your Email', validator: Validators.validateEmpty),
+            AuthTextField(
               controller: passController,
-              autoValidateMode: AutovalidateMode.onUserInteraction,
-              validator: Validators.validatePassword,
               hintText: 'Enter your password',
-              hintStyle: const TextStyle(color: Colors.grey),
+              validator: Validators.validateEmpty,
               suffixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.visibility_off)),
             ),
-
             SizedBox(
               height: 16.h,
             ),

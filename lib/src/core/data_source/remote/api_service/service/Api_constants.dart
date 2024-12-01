@@ -1,6 +1,6 @@
 class ApiConstants
 {
-  static const String baseUrl = 'https://0290-196-159-132-160.ngrok-free.app/api/V1/';
+  static const String baseUrl = 'http://127.0.0.1:5000/';
 
   // timeout durations
   static Duration timeoutDuration = const Duration(seconds: 15);

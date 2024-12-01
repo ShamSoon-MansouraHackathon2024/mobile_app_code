@@ -1,8 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:shamsoon/generated/assets.dart';
+import 'package:shamsoon/src/core/constants/app_constants.dart';
+import 'package:shamsoon/src/core/helpers/base_extensions/context/routes.dart';
+import 'package:shamsoon/src/features/home/presentation/screens/main_screen.dart';
 
 import '../../core/data_source/local/shared.dart';
 import '../../core/helpers/helper_methods/internet_connection_interceptor.dart';
+import '../auth/presentation/screens/login.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -31,19 +36,19 @@ class _SplashState extends State<Splash> {
   Future<void> _navigate() async {
     Timer(
         const Duration(seconds: 2), () {
-      switch (CacheHelper.getInstance().shared.getBool('finishOnBoarding'))
-      {
-        case true:
-          switch (userLoginState)
-          {
-            case true:
-              // context.removeOldRoute(const Login());
-            default:
-              // context.removeOldRoute(const BottomNavBar());
-          }
-        default:
-          // context.removeOldRoute(const OnBoarding());
-      }
+      context.removeOldRoute(const Login());
+
+      // switch (CacheHelper.getInstance().shared.getBool('finishOnBoarding')) {
+      //   case true:
+      //     switch (userLoginState) {
+      //       case true:
+      //         context.removeOldRoute(const Login());
+      //       default:
+      //         context.removeOldRoute(const Home());
+      //     }
+      //   default:
+      //     // context.removeOldRoute(const OnBoarding());
+      // }
     });
   }
 
@@ -59,12 +64,11 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      body: const Center(
-        // child: Image.asset(
-        //   'images/app_logo.png',
-        //   color: Colors.white,
-        // ),
-      ),
+      body: Center(
+        child: Image.asset(
+          Assets.imagesSplashGroup,
+        ),
+      )
     );
   }
 }

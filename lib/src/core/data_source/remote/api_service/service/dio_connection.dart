@@ -47,6 +47,7 @@ class DioConnection implements ApiService {
     required RequestModel request
   }) async {
     final connectivityResult = await Connectivity().checkConnectivity();
+    log(connectivityResult.name);
     switch(connectivityResult)
     {
       case ConnectivityResult.none :

@@ -12,6 +12,7 @@ class ReceivedError{
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.receiveTimeout:
       case DioExceptionType.connectionError:
+        log(e.type.toString());
         return NetworkError(
             'Please check the internet and try again'
         );
