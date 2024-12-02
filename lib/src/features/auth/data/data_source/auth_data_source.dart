@@ -5,6 +5,8 @@ import 'package:shamsoon/src/core/data_source/remote/api_service/service/api_req
 import 'package:shamsoon/src/core/data_source/remote/api_service/service/request_model/request_model.dart';
 import 'package:shamsoon/src/features/auth/data/data_source/models/login.dart';
 
+import 'models/resgistes_model.dart';
+
 class AuthDataSource{
   ApiService apiService;
   AuthDataSource(this.apiService);
@@ -17,6 +19,19 @@ class AuthDataSource{
           data: model.toJson()
         )
     );
+
+    return response.data['access_token'] as String;
+  }
+  
+  Future<String> signUp(RegisterModel model)async{
+    final response = await apiService.callApi(
+        request: RequestModel(
+          method: Methods.POST,
+          endPoint: ApiConstants.signUp,
+          data: model.toJson()
+        )
+    );
+
     return response.data['access_token'] as String;
   }
 }

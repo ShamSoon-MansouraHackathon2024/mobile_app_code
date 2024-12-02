@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 
-enum AuthStates {homeInitial, loginLoading, loginSuccess, loginError}
+enum AuthStates {homeInitial, loginLoading, loginSuccess, loginError, registerLoading, registerSuccess, registerError}
 class AuthState extends Equatable
 {
   final AuthStates? currentState;

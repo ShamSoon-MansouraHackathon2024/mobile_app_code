@@ -11,7 +11,7 @@ class RegisterModel{
     required this.confirmPassword,
   });
 
-  Map<String, dynamic> getMap() {
+  Map<String, dynamic> toJson() {
     return {
       'username': name,
       'email': email,
