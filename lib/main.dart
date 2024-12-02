@@ -9,11 +9,13 @@ import 'package:shamsoon/src/core/constants/app_constants.dart';
 import 'package:shamsoon/src/core/data_source/local/secure.dart';
 import 'package:shamsoon/src/core/data_source/local/shared.dart';
 import 'package:shamsoon/src/core/helpers/app_widgets/error_handling.dart/unexpected_error_handler.dart';
+import 'package:shamsoon/src/core/helpers/helper_methods/ai_model.dart';
 import 'package:shamsoon/src/core/shared/observers/bloc_observer.dart';
 import 'package:shamsoon/src/core/shared/service_locator.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
+  // AiModel().loadModel();
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );

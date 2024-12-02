@@ -5,6 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shamsoon/src/features/auth/presentation/bloc/auth_cubit.dart';
+import 'package:shamsoon/src/features/bottom_bar/presentation/widgets.dart';
 import 'core/data_source/local/shared.dart';
 import 'core/helpers/data_types/permession_process_model.dart';
 import 'core/helpers/helper_methods/handle_permissions.dart';

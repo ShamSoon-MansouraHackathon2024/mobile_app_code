@@ -5,6 +5,7 @@ class Assets {
   static const String imagesAppLogo = 'assets/images/app_logo.png';
   static const String imagesGoogleIcon = 'assets/images/google_icon.png';
   static const String imagesSplashGroup = 'assets/images/splash_group.png';
+  static const String modelsSolarPanelModel = 'assets/models/solar_panel_model.tflite';
   static const String translationArSA = 'assets/translation/ar-SA.json';
   static const String translationEnUS = 'assets/translation/en-US.json';
 
