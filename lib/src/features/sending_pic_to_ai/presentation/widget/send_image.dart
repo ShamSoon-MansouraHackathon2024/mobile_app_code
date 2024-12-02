@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shamsoon/src/core/helpers/base_extensions/context/mediaQuery.dart';
+import 'package:shamsoon/src/core/helpers/base_extensions/context/routes.dart';
 import 'package:shamsoon/src/features/sending_pic_to_ai/presentation/bloc/panel_details_cubit.dart';
+import 'package:shamsoon/src/features/sending_pic_to_ai/presentation/screens/result.dart';
 
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/helpers/base_widgets/text.dart';
@@ -49,7 +51,8 @@ class SendImageWidget extends StatelessWidget {
                     BlocBuilder<PanelDetailsCubit, PanelDetailsState>(
                         builder: (context, state) => state.selectedImage != null? TextButton(
                             onPressed: () {
-                              context.read<PanelDetailsCubit>().sendImageToAi();
+                              context.normalNewRoute(AiResult());
+                              // context.read<PanelDetailsCubit>().sendImageToAi();
                             },
                             child: const AppText(text: 'Send')
                         ) : const SizedBox.shrink()

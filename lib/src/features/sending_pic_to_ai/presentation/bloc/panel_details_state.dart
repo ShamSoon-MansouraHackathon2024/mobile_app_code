@@ -11,14 +11,15 @@ enum PanelDetailsInternalState {
   sendImageToAiError
 }
 
-class PanelDetailsState extends Equatable
-{
+class PanelDetailsState extends Equatable {
   final PanelDetailsInternalState? currentState;
   final File? selectedImage;
+  final String? result;
   final String? errorMsg;
 
   const PanelDetailsState({
     this.currentState,
+    this.result,
     this.selectedImage,
     this.errorMsg
   });
@@ -27,6 +28,7 @@ class PanelDetailsState extends Equatable
     return const PanelDetailsState(
         currentState : PanelDetailsInternalState.homeInitial,
         selectedImage : null,
+        result : '',
         errorMsg : ''
     );
   }
