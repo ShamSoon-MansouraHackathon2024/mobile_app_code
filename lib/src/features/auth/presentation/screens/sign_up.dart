@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shamsoon/src/core/helpers/base_extensions/context/padding.dart';
 import 'package:shamsoon/src/core/helpers/base_widgets/text.dart';
 import 'package:shamsoon/src/core/helpers/helper_methods/validators.dart';
+import 'package:shamsoon/src/features/auth/presentation/bloc/auth_cubit.dart';
 import 'package:shamsoon/src/features/auth/presentation/widgets/auth_text_field.dart';
 import 'package:shamsoon/src/features/auth/presentation/widgets/half_auth_screens.dart';
 import '../../../../core/helpers/app_widgets/app_logo.dart';
@@ -70,7 +72,9 @@ class _SignUpState extends State<SignUp> {
                 btnText: 'Sign up',
                 question: 'Already have an account?',
                 secondOptionText: 'Log in',
-                onClick: () {},
+                onClick: () {
+                  // context.read<AuthCubit>().
+                },
               )
             ],
           ),
